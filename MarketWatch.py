@@ -67,7 +67,7 @@ class MarketWatch:
 		try:
 			page = self.session.get("http://www.marketwatch.com/investing/stock/" + ticker)
 			tree = html.fromstring(page.content)
-			price = tree.xpath("/html/body/div[1]/div[3]/div[2]/div/div/div[2]/h3/bg-quote/text()")
+			price = tree.xpath("/html/body/div[1]/div[2]/div[2]/div/div/div[2]/h3/bg-quote/text()")
 			return round(float(price[0]), 2)
 		except:
 			return None
